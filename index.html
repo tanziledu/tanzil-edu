@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tanzil Education — একাদশ ও দ্বাদশ শ্রেণির বিষয়ভিত্তিক বইয়ের লাইব্রেরি।">
+  <title>Tanzil Education | HSC Book Library</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body { font-family: "Noto Sans Bengali", "Hind Siliguri", Arial, sans-serif; }
+    .hero h1 { letter-spacing: -1px; }
+    .library-tools {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    .library-tools input, .library-tools select {
+      width: 100%;
+      min-height: 49px;
+      padding: 12px 14px;
+      border: 1px solid #dce3ef;
+      border-radius: 10px;
+      background: white;
+      color: #101c3a;
+      font: inherit;
+    }
+    .library-tools input:focus, .library-tools select:focus {
+      outline: 2px solid #3458e8;
+      outline-offset: 1px;
+    }
+    .library-count { color: #65718a; font-size: 14px; margin: 8px 0 18px; }
+    .stream-title {
+      grid-column: 1 / -1;
+      margin: 25px 0 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5eaf3;
+      font-size: 22px;
+    }
+    .book-card { display: flex; flex-direction: column; align-items: flex-start; }
+    .book-card .card-link { margin-top: auto; padding-top: 12px; }
+    .book-tag {
+      display: inline-block;
+      margin: 0 0 8px;
+      padding: 4px 9px;
+      border-radius: 20px;
+      background: #edf1ff;
+      color: #3458e8;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .book-card p { min-height: 0; }
+    .empty-state {
+      padding: 30px 12px;
+      text-align: center;
+      color: #65718a;
+    }
+    @media (max-width: 520px) {
+      .library-tools { grid-template-columns: 1fr; }
+      .stream-title { font-size: 19px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a class="brand" href="#home">TANZIL<span> EDU.</span></a>
+      <div class="nav-links">
+        <a href="#home">হোম</a>
+        <a href="#about">আমাদের সম্পর্কে</a>
+        <a href="#library">বইয়ের লাইব্রেরি</a>
+        <a href="#contact">যোগাযোগ</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">WELCOME TO TANZIL EDUCATION</span>
+          <h1>শিখো আজ,<br><span>এগিয়ে যাও আগামীকাল।</span></h1>
+          <p>একাদশ ও দ্বাদশ শ্রেণির বিষয়ভিত্তিক বই খুঁজে নাও সহজেই। বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা—সব এক লাইব্রেরিতে।</p>
+          <a class="btn btn-primary" href="#library">বই খুঁজুন ↓</a>
+          <a class="btn btn-outline" href="#about">আমাদের সম্পর্কে</a>
+        </div>
+        <div class="hero-visual">
+          <img src="tanzil-converted.jpg" alt="Tanzil Education" onerror="this.onerror=null;this.src='tanzil.jpg'">
+          <div class="visual-caption">LEARN · EXPLORE · GROW</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">ABOUT THE LIBRARY</span>
+          <h2>তোমার পড়াশোনার সঙ্গী</h2>
+          <p>বিষয় বেছে নাও, পত্র নির্বাচন করো এবং বইয়ের নির্ভরযোগ্য উৎস খুঁজে নাও।</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">📚</div>
+          <div>
+            <h3>এক জায়গায় সব বিষয়</h3>
+            <p>এই লাইব্রেরিতে আবশ্যিক বিষয়সহ বিজ্ঞান, মানবিক ও ব্যবসায় শিক্ষা বিভাগের বই সাজানো হয়েছে। বইয়ের অনলাইন উৎসের জন্য NCTB-এর সরকারি ওয়েবসাইট ব্যবহার করো।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section library-section" id="library">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">HSC BOOK LIBRARY</span>
+          <h2>একাদশ–দ্বাদশ শ্রেণির বই</h2>
+          <p>বিভাগ, বিষয় বা পত্র বেছে নিয়ে বই খুঁজে নাও।</p>
+        </div>
+
+        <div class="library-tools">
+          <input id="bookSearch" type="search" placeholder="বই বা বিষয়ের নাম লিখুন..." aria-label="বই খুঁজুন">
+          <select id="streamFilter" aria-label="বিভাগ বেছে নিন">
+            <option value="all">সব বিভাগ</option>
+            <option value="আবশ্যিক">আবশ্যিক বিষয়</option>
+            <option value="বিজ্ঞান">বিজ্ঞান বিভাগ</option>
+            <option value="মানবিক">মানবিক বিভাগ</option>
+            <option value="ব্যবসায় শিক্ষা">ব্যবসায় শিক্ষা বিভাগ</option>
+          </select>
+          <select id="partFilter" aria-label="পত্র বেছে নিন">
+            <option value="all">সব পত্র</option>
+            <option value="১ম পত্র">১ম পত্র</option>
+            <option value="২য় পত্র">২য় পত্র</option>
+            <option value="একক বই">একক বই</option>
+          </select>
+          <select id="sortFilter" aria-label="বই সাজান">
+            <option value="default">বিভাগ অনুযায়ী সাজানো</option>
+            <option value="az">নাম অনুযায়ী সাজানো</option>
+          </select>
+        </div>
+
+        <p class="library-count" id="bookCount" aria-live="polite"></p>
+        <div class="education-grid" id="bookGrid"></div>
+        <p class="empty-state" id="emptyState" hidden>কোনো বই পাওয়া যায়নি। অন্য নাম বা বিভাগ দিয়ে খুঁজে দেখো।</p>
+        <p class="library-note">নোট: “NCTB-এর বই খুঁজুন” লিংকটি সরকারি NCTB ওয়েবসাইটে নিয়ে যাবে; এটি সরাসরি নির্দিষ্ট PDF ফাইলের লিংক নয়। বইয়ের সংস্করণ ও প্রাপ্যতা যাচাই করে নাও।</p>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card">
+          <span class="eyebrow">LET'S CONNECT</span>
+          <h2>পড়াশোনায় একসঙ্গে এগিয়ে যাই</h2>
+          <p>কোনো পরামর্শ বা প্রশ্ন থাকলে আমার Facebook প্রোফাইলে যোগাযোগ করতে পারো।</p>
+          <a class="btn btn-light" href="https://www.facebook.com/Ahmedtanjil123" target="_blank" rel="noopener noreferrer">আমার Facebook ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand footer-brand" href="#home">TANZIL<span> EDU.</span></a>
+      <p>© <span id="year"></span> Tanzil Education. শেখো, এগিয়ে যাও।</p>
+    </div>
+  </footer>
+
+  <script>
+    const officialNctb = "https://nctb.gov.bd/";
+
+    const subjects = [
+      { name: "বাংলা", stream: "আবশ্যিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ইংরেজি", stream: "আবশ্যিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "তথ্য ও যোগাযোগ প্রযুক্তি (ICT)", stream: "আবশ্যিক", parts: ["একক বই"] },
+
+      { name: "পদার্থবিজ্ঞান", stream: "বিজ্ঞান", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "রসায়ন", stream: "বিজ্ঞান", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "উচ্চতর গণিত", stream: "বিজ্ঞান", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "জীববিজ্ঞান", stream: "বিজ্ঞান", parts: ["১ম পত্র", "২য় পত্র"] },
+
+      { name: "পৌরনীতি ও সুশাসন", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "অর্থনীতি", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "যুক্তিবিদ্যা", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "সমাজবিজ্ঞান", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "সমাজকর্ম", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ইতিহাস", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ইসলামের ইতিহাস ও সংস্কৃতি", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ভূগোল", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "মনোবিজ্ঞান", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ইসলামশিক্ষা", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "গৃহ ব্যবস্থাপনা ও পারিবারিক জীবন", stream: "মানবিক", parts: ["১ম পত্র", "২য় পত্র"] },
+
+      { name: "হিসাববিজ্ঞান", stream: "ব্যবসায় শিক্ষা", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ব্যবসায় সংগঠন ও ব্যবস্থাপনা", stream: "ব্যবসায় শিক্ষা", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "ফিন্যান্স, ব্যাংকিং ও বিমা", stream: "ব্যবসায় শিক্ষা", parts: ["১ম পত্র", "২য় পত্র"] },
+      { name: "উৎপাদন ব্যবস্থাপনা ও বিপণন", stream: "ব্যবসায় শিক্ষা", parts: ["১ম পত্র", "২য় পত্র"] }
+    ];
+
+    const allBooks = subjects.flatMap(subject =>
+      subject.parts.map(part => ({
+        name: subject.name,
+        stream: subject.stream,
+        part: part
+      }))
+    );
+
+    const grid = document.getElementById("bookGrid");
+    const searchInput = document.getElementById("bookSearch");
+    const streamFilter = document.getElementById("streamFilter");
+    const partFilter = document.getElementById("partFilter");
+    const sortFilter = document.getElementById("sortFilter");
+
+    function renderBooks() {
+      const query = searchInput.value.trim().toLocaleLowerCase("bn");
+      const stream = streamFilter.value;
+      const part = partFilter.value;
+
+      let results = allBooks.filter(book => {
+        const matchesSearch =
+          (book.name + " " + book.stream + " " + book.part)
+            .toLocaleLowerCase("bn").includes(query);
+        const matchesStream = stream === "all" || book.stream === stream;
+        const matchesPart = part === "all" || book.part === part;
+        return matchesSearch && matchesStream && matchesPart;
+      });
+
+      if (sortFilter.value === "az") {
+        results.sort((a, b) => a.name.localeCompare(b.name, "bn"));
+      }
+
+      grid.replaceChildren();
+
+      results.forEach(book => {
+        const card = document.createElement("article");
+        card.className = "book-card";
+
+        const icon = document.createElement("div");
+
+const streamClass = {
+  "প্রয়োজনীয়": "cover-required",
+  "বিজ্ঞান": "cover-science",
+  "মানবিক": "cover-humanities",
+  "ব্যবসায় শিক্ষা": "cover-business"
+};
+
+icon.className = "book-cover " + (
+  streamClass[book.stream] || "cover-single"
+);
+
+const brand = document.createElement("span");
+brand.className = "cover-brand";
+brand.textContent = "TANZIL EDUCATION";
+
+const coverTitle = document.createElement("strong");
+coverTitle.className = "cover-title";
+coverTitle.textContent = book.name;
+
+const coverPart = document.createElement("span");
+coverPart.className = "cover-part";
+coverPart.textContent = book.part || "সম্পূর্ণ বই";
+
+icon.append(brand, coverTitle, coverPart);
+
+        const category = document.createElement("span");
+        category.className = "book-level";
+        category.textContent = book.stream;
+
+        const title = document.createElement("h3");
+        title.textContent = book.name;
+
+        const tag = document.createElement("span");
+        tag.className = "book-tag";
+        tag.textContent = book.part;
+
+        const description = document.createElement("p");
+        description.textContent = book.part === "একক বই"
+          ? "এই বিষয়ের বইয়ের তথ্য ও সরকারি উৎস দেখুন।"
+          : book.part + " — বইয়ের তথ্য ও সরকারি উৎস দেখুন।";
+
+        const link = document.createElement("a");
+        link.className = "card-link";
+        link.href = officialNctb;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "NCTB-এর বই খুঁজুন ↗";
+
+        card.append(icon, category, title, tag, description, link);
+        grid.appendChild(card);
+      });
+
+      document.getElementById("bookCount").textContent =
+        "মোট " + allBooks.length + "টি বইয়ের এন্ট্রি · দেখানো হচ্ছে " + results.length + "টি";
+
+      document.getElementById("emptyState").hidden = results.length !== 0;
+    }
+
+    [searchInput, streamFilter, partFilter, sortFilter].forEach(control => {
+      control.addEventListener("input", renderBooks);
+      control.addEventListener("change", renderBooks);
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+    renderBooks();
+  </script>
+</body>
+</html>
